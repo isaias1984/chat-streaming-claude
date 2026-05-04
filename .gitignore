@@ -30,8 +30,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files — never commit secrets; .env.example is the only safe exception
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +40,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Editor caches
+.idea/
+*.iml
+
+# OS noise
+Thumbs.db
+
+# Agent and tool caches
+.claude/cache/
