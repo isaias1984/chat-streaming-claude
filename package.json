@@ -2,11 +2,18 @@
   "name": "chat-streaming-claude",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.11.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "typecheck": "echo 'typecheck: not configured yet — see SETUP-002' && exit 0",
+    "format": "echo 'format: not configured yet — see SETUP-002' && exit 0",
+    "test": "echo 'test: not configured yet — see SETUP-002' && exit 0",
+    "test:watch": "echo 'test:watch: not configured yet — see SETUP-002' && exit 0"
   },
   "dependencies": {
     "next": "16.2.4",
