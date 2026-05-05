@@ -62,19 +62,18 @@ CLAUDE.md                 ← Behavioral guidelines + pointer to this file
 
 ## Canonical commands
 
-Run from the repo root. Commands marked ⚠️ are declared but not wired
-yet — they print an informational message and exit 0 until SETUP-002.
+Run from the repo root.
 
 | Command              | Description                                 |
 |----------------------|---------------------------------------------|
 | `npm run dev`        | Start dev server on localhost:3000          |
 | `npm run build`      | Production build                            |
 | `npm run start`      | Start production server                     |
-| `npm run typecheck`  | TypeScript type check ⚠️ wired in SETUP-002 |
-| `npm run lint`       | ESLint check ⚠️ wired in SETUP-002          |
-| `npm run format`     | Prettier format ⚠️ wired in SETUP-002       |
-| `npm run test`       | Run unit tests ⚠️ wired in SETUP-002        |
-| `npm run test:watch` | Tests in watch mode ⚠️ wired in SETUP-002   |
+| `npm run typecheck`  | TypeScript type check |
+| `npm run lint`       | ESLint check          |
+| `npm run format`     | Prettier format       |
+| `npm run test`       | Run unit tests        |
+| `npm run test:watch` | Tests in watch mode   |
 
 **Before every PR**: `npm run typecheck && npm run lint && npm run test`.
 
@@ -150,5 +149,3 @@ A task is done when:
   English translations are the canonical versions, installed as slash
   commands in `.claude/commands/`. The Spanish originals are not
   committed to this repo.
-- `typecheck`, `lint`, `format`, `test`, and `test:watch` are declared
-  but not wired. They will be implemented in SETUP-002.
