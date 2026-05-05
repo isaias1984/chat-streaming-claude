@@ -1,0 +1,22 @@
+import { describe, expect, it } from "vitest";
+import { isNonEmptyString } from "@/lib/utils";
+
+describe("isNonEmptyString", () => {
+  it("returns true for a non-empty string", () => {
+    expect(isNonEmptyString("hello")).toBe(true);
+  });
+
+  it("returns false for an empty string", () => {
+    expect(isNonEmptyString("")).toBe(false);
+  });
+
+  it("returns false for a whitespace-only string", () => {
+    expect(isNonEmptyString("   ")).toBe(false);
+  });
+
+  it("returns false for non-string values", () => {
+    expect(isNonEmptyString(null)).toBe(false);
+    expect(isNonEmptyString(42)).toBe(false);
+    expect(isNonEmptyString(undefined)).toBe(false);
+  });
+});
