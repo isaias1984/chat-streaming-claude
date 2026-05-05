@@ -9,11 +9,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "typecheck": "echo 'typecheck: not configured yet — see SETUP-002' && exit 0",
-    "format": "echo 'format: not configured yet — see SETUP-002' && exit 0",
-    "test": "echo 'test: not configured yet — see SETUP-002' && exit 0",
-    "test:watch": "echo 'test:watch: not configured yet — see SETUP-002' && exit 0"
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "next": "16.2.4",
@@ -28,6 +28,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "prettier": "^3",
+    "typescript": "^5",
+    "vitest": "^3"
   }
 }
