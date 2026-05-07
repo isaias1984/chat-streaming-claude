@@ -179,14 +179,14 @@ the CodeRabbit and CI rows.
 
 Replace:
 
-```
+```text
 | AI code review   | CodeRabbit           | `.coderabbit.yaml` (added in SETUP-003)   |
 | CI/CD            | GitHub Actions       | `.github/workflows/` (added in SETUP-003) |
 ```
 
 With:
 
-```
+```text
 | AI code review   | CodeRabbit           | `.coderabbit.yaml`                        |
 | CI/CD            | GitHub Actions       | `.github/workflows/`                      |
 ```
@@ -196,19 +196,19 @@ add `.husky/` block, and add `CHANGELOG.md` to the top-level file list.
 
 Replace:
 
-```
+```text
   workflows/              ← CI/CD pipelines (wired in SETUP-003)
 ```
 
 With:
 
-```
+```text
   workflows/              ← CI/CD pipelines
 ```
 
 Add a `.husky/` block immediately before `.github/`:
 
-```
+```text
 .husky/
   pre-commit              ← runs lint-staged on staged files
   commit-msg              ← runs commitlint on commit messages
@@ -216,7 +216,7 @@ Add a `.husky/` block immediately before `.github/`:
 
 Add `CHANGELOG.md` to the top-level file list, after `ARCHITECTURE.md`:
 
-```
+```text
 CHANGELOG.md              ← project changelog (Keep a Changelog format)
 ```
 
