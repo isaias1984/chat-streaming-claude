@@ -24,13 +24,13 @@ See `docs/plans/` for the current task queue.
 If a module changes, update this table and the relevant convention docs.
 The rest of the workflow is unaffected.
 
-| Concern          | Current module       | Config location                           |
-|------------------|----------------------|-------------------------------------------|
-| Task management  | Linear               | External (linear.app)                     |
-| VCS + hosting    | GitHub               | github.com/isaias1984/chat-streaming-claude |
-| AI dev agent     | Claude Code (VSCode) | `.claude/`                                |
-| AI code review   | CodeRabbit           | `.coderabbit.yaml` (added in SETUP-003)   |
-| CI/CD            | GitHub Actions       | `.github/workflows/` (added in SETUP-003) |
+| Concern         | Current module       | Config location                             |
+| --------------- | -------------------- | ------------------------------------------- |
+| Task management | Linear               | External (linear.app)                       |
+| VCS + hosting   | GitHub               | github.com/isaias1984/chat-streaming-claude |
+| AI dev agent    | Claude Code (VSCode) | `.claude/`                                  |
+| AI code review  | CodeRabbit           | `.coderabbit.yaml`                          |
+| CI/CD           | GitHub Actions       | `.github/workflows/`                        |
 
 ---
 
@@ -39,8 +39,11 @@ The rest of the workflow is unaffected.
 ```
 .claude/
   commands/               ← Claude Code slash commands (/review, /commits)
+.husky/
+  pre-commit              ← runs lint-staged on staged files
+  commit-msg              ← runs commitlint on commit messages
 .github/
-  workflows/              ← CI/CD pipelines (wired in SETUP-003)
+  workflows/              ← CI/CD pipelines
   pull_request_template.md
 docs/
   adr/                    ← Architecture Decision Records
@@ -55,6 +58,7 @@ src/
   lib/                    ← Shared utilities (environment-agnostic)
 AGENTS.md                 ← This file
 ARCHITECTURE.md           ← High-level design and key decisions
+CHANGELOG.md              ← project changelog (Keep a Changelog format)
 CLAUDE.md                 ← Behavioral guidelines + pointer to this file
 ```
 
@@ -64,16 +68,16 @@ CLAUDE.md                 ← Behavioral guidelines + pointer to this file
 
 Run from the repo root.
 
-| Command              | Description                                 |
-|----------------------|---------------------------------------------|
-| `npm run dev`        | Start dev server on localhost:3000          |
-| `npm run build`      | Production build                            |
-| `npm run start`      | Start production server                     |
-| `npm run typecheck`  | TypeScript type check |
-| `npm run lint`       | ESLint check          |
-| `npm run format`     | Prettier format       |
-| `npm run test`       | Run unit tests        |
-| `npm run test:watch` | Tests in watch mode   |
+| Command              | Description                        |
+| -------------------- | ---------------------------------- |
+| `npm run dev`        | Start dev server on localhost:3000 |
+| `npm run build`      | Production build                   |
+| `npm run start`      | Start production server            |
+| `npm run typecheck`  | TypeScript type check              |
+| `npm run lint`       | ESLint check                       |
+| `npm run format`     | Prettier format                    |
+| `npm run test`       | Run unit tests                     |
+| `npm run test:watch` | Tests in watch mode                |
 
 **Before every PR**: `npm run typecheck && npm run lint && npm run test`.
 
@@ -125,6 +129,7 @@ Out of Scope · References** (references only if they exist).
 ## Definition of Done
 
 A task is done when:
+
 - All acceptance criteria are verifiably met.
 - `typecheck`, `lint`, and `test` pass locally and in CI.
 - A plan document is committed inside the PR.
@@ -135,11 +140,11 @@ A task is done when:
 
 ## Process thresholds
 
-| Type                | Criteria                                        | Flow                                        |
-|---------------------|-------------------------------------------------|---------------------------------------------|
-| Spike / learning    | <50 lines, no public interfaces touched         | Issue + PR + self-review. No plan doc.      |
-| Small feature       | Touches 1–3 files, clear bounded scope          | Full flow: plan → execute → review → PR     |
-| Architecture change | Cross-cutting, affects multiple modules or APIs | Full flow + ADR in `docs/adr/`              |
+| Type                | Criteria                                        | Flow                                    |
+| ------------------- | ----------------------------------------------- | --------------------------------------- |
+| Spike / learning    | <50 lines, no public interfaces touched         | Issue + PR + self-review. No plan doc.  |
+| Small feature       | Touches 1–3 files, clear bounded scope          | Full flow: plan → execute → review → PR |
+| Architecture change | Cross-cutting, affects multiple modules or APIs | Full flow + ADR in `docs/adr/`          |
 
 ---
 
